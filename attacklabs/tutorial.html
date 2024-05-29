@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TI Learning Platform</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
+    <script>
+        // Check if a mode preference is saved in local storage
+        const savedMode = localStorage.getItem('mode');
+
+        // Apply the saved mode or default to light mode
+        if (savedMode === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+
+</head>
+<body>
+
+    <div class="container">
+        <div id="menu"></div>
+
+
+        <main class="center-content">
+            <div class="content">
+                <h1>Template Injection Learning Platform</h1>
+                <p>Following Kettles 3-Step Method “Detect-Identify-Exploit” will lead through the Template Injection Vulnerabilities. Here is a Tutorial on how to apply that in practice.</p>
+
+
+                <h2>Attack Lab: Tutorial</h2>
+                <p>This tutorial is designed for beginners, but it's also a great refresher for more experienced users.</p>
+
+
+                <h2>Detect</h2>
+                <h3>Step 1 – Polyglot</h3>
+                <p>Insert Polyglot to detect a possible Template Injection vulnerability.</p>
+                <p> Paste the Polyglot: <code>&lt;&#37;&#39;&#36;&#123;&#123;/&#35;&#64;&#125;&#125;&#37;&gt;&#123;&#123;</code></p>
+                <img src="../images/tutorial1.jpg" width="600">
+                <br>
+                <img src="../images/tutorial2.jpg" width="900">
+                <p>When there is an error or page content was visibly interpreted, you have a potential exploit and move on to Identify. If not, you can try a different Polyglot from the list below or create your own.</p>
+
+                <p><strong>EXTRA – List of Polyglots</strong></p>
+
+                <p>This is a list of polyglots most likely to be useful for testing.</p>
+                <ul class="shortlist">
+                    <li><code>&#36;&#123;&lt;&#37;&#91;&#37;&#39;&#34;&#125;&#125;&#37;\ </code></li>
+                    <li><code>&#36;&#123;&#123;&lt;&#37;&#91;&#37;&#39;&#34;&#125;&#125;&#37;\&#46; </code></li>
+                    <li><code>&lt;&#35;set(&#36;x&lt;&#37;=&#123;&#123;=&#123;&#64;&#123;&#35;&#123;&#36;&#123;xux&#125;&#125;&#37;&#41; </code></li>
+                    <li><code>&lt;&#37;=&#123;&#123;=&#123;&#64;&#123;&#35;&#123;&#36;&#123;xu&#125;&#125;&#37;&gt; </code></li>
+                    <li><code>&lt;th:t=&quot;&#36;&#123;xu&#125;&#35;foreach. </code></li>
+                    <li><code>&lt;&#37;&#39;&#36;&#123;&#123;&#35;&#64;&#125;&#125;&#37;&gt; </code></li>
+                    <li><code>&lt;&#37;&#39;&#36;&#123;&#123;/&#35;&#64;&#125;&#125;&#37;&gt;&#123;&#123; </code></li>
+                </ul>
+
+                <h2>Identify</h2>
+                <h3 id="polyglot-manipulation">  Step 1 – Identify Syntax via Polyglot Manipulation (Trial & Error)</h3>
+                <p>If there was an interpretation of the polyglot, you can narrow down the choice of template engines by removing characters.</p>
+                <img src="../images/tutorial3.jpg" width="500">
+                <p>This can be done in various ways, for example by removing characters from right to left or the other way around.</p>
+                <img src="../images/tutorial4.jpg" width="500">
+                <p>Generally, it is more effective to remove characters based on what type of basic syntax there is.</p>
+                <img src="../images/tutorial5.jpg" width="500">
+                <p>Or, you can insert the basic syntax one after the other using the following list.</p>
+
+                <p><strong>EXTRA: List of Basic Syntax</strong></p>
+
+                <p>This is a list of basic syntax most likely to be useful for testing.</p>
+                <ul class="longlist">
+                    <li><code>#{ }</code></li>
+                    <li><code>= </code></li>
+                    <li><code>{$ }</code></li>
+                    <li><code>{${}}</code></li>
+                    <li><code>$( )</code></li>
+                    <li><code>$[ ]</code></li>
+                    <li><code>${ }</code></li>
+                    <li><code>[= ]</code></li>
+                    <li><code>$!{ }</code></li>
+                    <li><code>&lt;%= %&gt;</code></li>
+                    <li><code>&lt;%- %&gt;</code></li>
+                    <li><code>&lt;%% %&gt;</code></li>
+                    <li><code>&lt;%= -%&gt;</code></li>
+                    <li><code>&lt;%~  &gt;</code></li>
+                    <li><code>%= %</code></li>
+                    <li><code>{{ }}</code></li>
+                    <li><code>@php  @endphp</code></li>
+                    <li><code>{{: }}</code></li>
+                    <li><code>&lt;?= ?&gt;</code></li>
+                    <li><code>@</code></li>
+                    <li><code>@()</code></li>
+                    <li><code>{ }</code></li>
+                    <li><code>$</code></li>
+                </ul>
+
+                <h3>Step 2 – Identify Template Engine via Decision Tree</h3>
+                <h4>Enter Syntax Groups</h4>
+                <p>Once a basic syntax has been identified you can use the Interactive Decision Tree to identify the template engine. First enter the syntax group based on the identified basic syntax. Then you can follow the tree by injecting the payloads along the tree path.</p>
+                <img src="../images/tutorial7.jpg" width="800">
+                <p>Each node represents a payload. When clicking on that node, a short description with the expected outcome of injecting the payload is presented. This will lead you further along the path. Generally, achieving the expected outcome as noted in the tree, you will either determine the template engine or restrict the possibilities by entering a new branch.</p>
+
+                <img src="../images/tutorial8.jpg" width="800">
+                <p>By following the method, you will have either identified the template engine or exceeded the scope of the tree. Note: The payloads of this tree have been created by testing default configuration template engines. Deviations and inaccuracies may occur when opposed with custom settings.</p>
+                <p>This is as far as the local challenges are aiming for but the third part of this method is still relevant for real world pentesting.</p>
+                <h2>Exploit</h2>
+                <p>As explained in the <a href="../fundamentals.html">Fundamentals</a> the Exploit portion is divided into three parts: Read, Explore, Attack. <br />If you need a refresher, read through the <a href="../fundamentals.html">Fundamentals</a> again or go on <a href="https://portswigger.net/web-security/server-side-template-injection/exploiting">PortSwigger</a> for a more thorough explanation.</p>
+                <p>Important, however, are ways to exploit the vulnerabilities. Here are some helpful links:</p>
+                <ul class="shortlist">
+                    <li><a href="https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection">https://book.hacktricks.xyz/pentesting-web/ssti-server-side-template-injection</a></li>
+                    <li><a href="https://github.com/payloadbox/ssti-payloads">https://github.com/payloadbox/ssti-payloads</a></li>
+                    <li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/README.md?ref=hackernoon.com">https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/README.md?ref=hackernoon.com</a></li>
+                </ul>
+
+            </div>
+
+            <div class="ui divider"></div>
+
+            <div class="button-container">
+                <!-- With a new element using Semantic UI icons -->
+                <div id="toggle-mode" class="ui icon button">
+                    <i class="moon outline icon"></i> <!-- Moon icon for dark mode -->
+                    <i class="sun icon"></i> <!-- Sun icon for light mode -->
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</body>
+</html>

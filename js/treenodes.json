@@ -1,0 +1,490 @@
+{
+  "name": "<%'${{/#{@}}%>{{",
+  "info": "Polyglot Root Node: The decision tree starts with the root node, which in this case is a polyglot used to detect a vulnerability in the first place. There are various polyglots than can be used. The one in this node has been proven to be the most effective one.",
+  "children": [
+    {
+      "name": "END",
+      "info": "The Template Engine could not be determined."
+    },
+    {
+      "name": "#{ ... }",
+      "info": "If #{ has been interpreted by the browser, use the following expressions to determine the Template Engine. ",
+      "children": [
+        {
+          "name": "#{{7*7}}",
+          "info": "This expression only works for Slim within this group. The expected output is: 49",
+          "children": [
+            {
+              "name": "Slim",
+              "info": "If you followed the decision tree and reached this node, then you are wroking with this Template Engine."
+            },
+            {
+              "name": "=7*7",
+              "info": "This expression only works for Pug Default and Haml within this group. The expected output is: 49.",
+              "children": [
+                {
+                  "name": "#{7*7}",
+                  "info": "Haml needs to be checked with Pug Default with #{7*7} as they both use =7*7 syntax. For Pug Default you would expect: <49> and for Haml: 49.",
+                  "children": [
+                    {
+                      "name": "Pug Default",
+                      "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+
+                    },
+                    {
+                      "name": "Haml",
+                      "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+
+                    }
+                  ]
+                },
+                {
+                  "name": "#{new Date().getFullYear()}",
+                  "info": "This expression only works for Pug Default within this group. The expected output is your current/system year",
+                  "children": [
+                    {
+                      "name": "Pug Inline",
+                      "info": "If you followed the decision tree and reached this node, then you are wroking with this Template Engine."
+                    },
+                    {
+                      "name": "END",
+                      "info": "The Template Engine could not be determined."
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "${ ... }",
+      "info": "If ${ has been interpreted by the browser, use the following expressions to determine the Template Engine.",
+      "children": [
+        {
+          "name": "<%= 7*7 %>",
+          "info": "Among this group only Groovy uses both ${...} and <%= ... %> expressions.",
+          "children": [
+            {
+              "name": "Groovy",
+              "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+            },
+            {
+              "name": "${(10*10) ne 100}",
+              "info": "It is a unique expression given by the template engine documentation of Expression Language. To be sure, you can check the other expressions in this doc as well: https://docs.oracle.com/javaee/7/tutorial/jsf-el007.htm",
+              "children": [
+                {
+                  "name": "Expression Language",
+                  "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                },
+                {
+                  "name": "${str('text').upper()}",
+                  "info": "This expression works for both Cheetah and Mako. The expected output is: TEXT",
+                  "children": [
+                    {
+                      "name": "$someVar",
+                      "info": "Between Mako and Cheetah, only Cheetah interprets this expression. The expected output is an error if the variable is not defined or if it is you will get its value returned.",
+                      "children": [
+                        {
+                          "name": "Cheetah",
+                          "info": "If you followed the decision tree and reached this node, then you are wroking with this Template Engine."
+                        },
+                        {
+                          "name": "Mako",
+                          "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                        }
+                      ]
+                    },
+                    {
+                      "name": "${(7*7)?c}",
+                      "info": "This expression would format the value 7*7 in way that is specific to Freemarker. The expected output is: 49",
+                      "children": [
+                        {
+                          "name": "Freemarker",
+                          "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                        },
+                        {
+                          "name": "[[${ 7*7 }]]",
+                          "info": "This expression is not uniquely interpreted by Thymeleaf, but only Thymeleaf Default will return: 49",
+                          "children": [
+                            {
+                              "name": "Thymeleaf Default",
+                              "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                            },
+                            {
+                              "name": "${#strings.toUpperCase('thymeleaf')}",
+                              "info": "The use of utility objects with the # symbol is unique to Thymeleaf. The expected output is: THYMELEAF",
+                              "children": [
+                                {
+                                  "name": "Thymeleaf Inline",
+                                  "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                                },
+                                {
+                                  "name": "END",
+                                  "info": "The Template Engine could not be determined."
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "<%= ... %>",
+      "info": "If <% has been interpreted by the browser, use the following expressions to determine the Template Engine.",
+      "children": [
+        {
+          "name": "${7*7}",
+          "info": "Among this group only Groovy uses both ${...} and <%= ... %> expressions. The expected output is: 49",
+          "children": [
+            {
+              "name": "Groovy",
+              "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+            },
+            {
+              "name": "%= 7*7 %",
+              "info": "Among this group only Mojolicious uses both %= ... and <%= ... %> expressions. The expected output is: 49",
+              "children": [
+                {
+                  "name": "Mojolicious",
+                  "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                },
+                {
+                  "name": "<% const number = 10; %>",
+                  "info": "Excludes ERB / Ruby Templates, so that only Underscore and EJS remain in this group. The expected output is to get no error or just no returned value.",
+                  "children": [
+                    {
+                      "name": "<% _.each([1, 2, 3], function(num) { %>\n<p>Number <%= num %></p>\n<% }); %>",
+                      "info": "Identifies Underscore if compared to EJS. The expected output is: Number 1 Number 2 Number 3. Note: Each Number is in a new line.",
+                      "children": [
+                        {
+                          "name": "Underscore",
+                          "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                        },
+                        {
+                          "name": "EJS",
+                          "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                        }
+                      ]
+                    },
+                    {
+                      "name": "<%~ 7*7 >",
+                      "info": "Among this group only Eta uses both <%~  ... > and <%= ... %> expressions.",
+                      "children": [
+                        {
+                          "name": "Eta",
+                          "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                        },
+                        {
+                          "name": "<%= \"Number: #{10 + 10}\" %>",
+                          "info": "Among this group only ERB can parse #{10 + 10} correctly.",
+                          "children": [
+                            {
+                              "name": "ERB",
+                              "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                            },
+                            {
+                              "name": "END",
+                              "info": "The Template Engine could not be determined."
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "{{ ... }}",
+      "info": "If {{ has been interpreted by the browser, use the following expressions to determine the Template Engine.",
+      "children": [
+        {
+          "name": "{{ 7 | times: 7 }}",
+          "info": "Among this group only Liquid can parse this expression. The expected output is: 49",
+          "children": [
+            {
+              "name": "Liquid",
+              "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+            },
+            {
+              "name": "{{ cycle(['odd', 'even'], loop.index0) }}",
+              "info": "Only Twig PHP can interpret this expression. The expected output is either 'odd' or 'even'. It does not have to cycle between responses to be valid.",
+              "children": [
+                {
+                  "name": "Twig PHP",
+                  "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                },
+                {
+                  "name": "{{define \"T1\"}}<script>alert(1)</script>{{end}} {{template \"T1\"}}",
+                  "info": "This will create an alert and restrict the possibilities to text/template and html/template.",
+                  "children": [
+                    {
+                      "name": "{{ \"<script>alert('test')</script>\" }}",
+                      "info": "The distinguishing factor here is how each template engine handles the string. In html/template, the string is escaped to prevent XSS attacks, while in text/template, the string remains unaltered. So if an alert is created the Template Engine is text/template.",
+                      "children": [
+                        {
+                          "name": "text/template",
+                          "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                        },
+                        {
+                          "name": "html/template",
+                          "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                        }
+                      ]
+                    },
+                    {
+                      "name": "{% filter upper %}\n   This text will be converted to uppercase.\n{% endfilter %}",
+                      "info": "This restricts the possible Template Engines to Twig JS, Django, Jinja2 and Nunjucks. The expected output is: THIS TEXT WILL BE CONVERTED TO UPPERCASE",
+                      "children": [
+
+
+                        {
+                          "name": "{{ count }} item{{ count|pluralize }}",
+                          "info": "In this expression, if count is 1, the output will be '1 item'. If count is any number other than 1, the output will be 'X items', where X is the value of count. The pluralize filter automatically adds an 's' to make the word 'item' plural based on the value of count. This will give you most likely the ouput: item or items depending on the configuration. Important is that output is generated.",
+                          "children": [
+                            {
+                              "name": "Django",
+                              "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                            },
+                            {
+                              "name": "{{config}}",
+                              "info": "Among this branch only Jinja2 can interpret this expression. The expected output is a bunch of myriad config settings.",
+                              "children": [
+                                {
+                                  "name": "Jinja2",
+                                  "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                                },
+                                {
+                                  "name": "{{ attribute({'a': 1}, 'a') }}",
+                                  "info": "In this Twig JS expression, the attribute function is used with JavaScript-style object notation. The expected output is: 1",
+                                  "children": [
+                                    {
+                                      "name": "Twig JavaScript",
+                                      "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                                    },
+                                    {
+                                      "name": "{% set items = [\"a\", 1, { b : true}] %}\n{{ items | dump }}",
+                                      "info": "In Nunjucks, the dump filter is used for debugging purposes and is designed to output a string representation of a given object, which makes this expression suitable for debugging complex data structures in Nunjucks templates.",
+                                      "children": [
+                                        {
+                                          "name": "Nunjucks",
+                                          "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                                        },
+                                        {
+                                          "name": "Move to {{#if condition}}\n  True\n{{else}}\n  False\n{{/if}}",
+                                          "info": "Move to this node to continue the tree.",
+                                          "color": "#eb8934"
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "{{#if condition}}\n  True\n{{else}}\n  False\n{{/if}}",
+                          "info": "The {{#if}}...{{else}}...{{/if}} block is a feature of Handlebars for conditional statements. This will display 'True' if the condition is correct otherwise 'False'. Important is that output is generated.",
+                          "color": "#eb8934",
+                          "children": [
+                            {
+                              "name": "Handlebars",
+                              "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                            },
+                            {
+                              "name": "@php\n  echo 'This is Blade.'\n@endphp",
+                              "info": "The @php directive in Blade allows inline PHP code. This is a Blade-specific feature. The expected output is: This is Blade.",
+                              "children": [
+                                {
+                                  "name": "Blade",
+                                  "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                                },
+                                {
+                                  "name": "{% for i in range(3) %}\n  {{ i }}\n{% end %}",
+                                  "info": "The use of range in a for loop is a Python-specific feature and indicates Tornado's template engine, as it allows embedding Python code directly. The expected output is: 0 1 2",
+                                  "children": [
+                                    {
+                                      "name": "Tornado",
+                                      "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                                    },
+                                    {
+                                      "name": "{% set danger = \"<br>\" %}\n{{ danger | uppercase | raw }}",
+                                      "info": "The filter raw is unique to Pebble among this group. This will output: <br> ",
+                                      "children": [
+                                        {
+                                          "name": "Pebble",
+                                          "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                                        },
+                                        {
+                                          "name": "{% set book = {\"name\" : \"Rocking HubL\", \"author\" : \"John Smith\" }%}\n{% do book.update({\"ebook\" : \"yes\"}) %}\n{{book}}",
+                                          "info": "The tag do is unique to Hubspot among this group. This will output: {name=Rocking HubL, author=John Smith, ebook=yes} ",
+                                          "children": [
+                                            {
+                                              "name": "Hubspot - HubL",
+                                              "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                                            },
+                                            {
+                                              "name": "END",
+                                              "info": "The Template Engine could not be determined."
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "@ ...",
+      "info": "If @ has been interpreted by the browser, use the following expressions to determine the Template Engine.",
+      "children": [
+        {
+          "name": "@(7*7)",
+          "info": "This will be interpreted by Razor. The expected outcome is: 49 ",
+          "children": [
+            {
+              "name": "Razor",
+              "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+            },
+            {
+              "name": "END",
+              "info": "The Template Engine could not be determined."
+            }
+          ]
+        }
+
+      ]
+    },
+    {
+      "name": "{{: ... }}",
+      "info": "If {{: has been interpreted by the browser, use the following expressions to determine the Template Engine.",
+      "children": [
+        {
+          "name": "{{:7*7}}",
+          "info": "This will be interpreted by JsRender. The expected outcome is: 49 ",
+          "children": [
+            {
+              "name": "JsRender",
+              "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+            },
+            {
+              "name": "END",
+              "info": "The Template Engine could not be determined."
+            }
+          ]
+        }
+
+      ]
+    },
+    {
+      "name": "<?= ... ?>",
+      "info": "If <?= has been interpreted by the browser, use the following expressions to determine the Template Engine.",
+      "children": [
+        {
+          "name": "<?= 7 * 7 ?>",
+          "info": "This will be interpreted by Plates. The expected outcome is: 49 ",
+          "children": [
+            {
+              "name": "Plates",
+              "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+            },
+            {
+              "name": "END",
+              "info": "The Template Engine could not be determined."
+            }
+          ]
+        }
+
+      ]
+    },
+    {
+      "name": "$ ... OR # ...",
+      "info": "If $ or # has been interpreted by the browser, use the following expressions to determine the Template Engine.",
+      "children": [
+        {
+          "name": "#set( $foo = 7*7) $foo",
+          "info": "This will be interpreted by Velocity. The expected outcome is: 49 ",
+          "children": [
+            {
+              "name": "#evaluate('Velocity)",
+              "info": "This will only be interpreted by Velocity Java. The expected outcome is Velocity.",
+              "children": [
+                {
+                  "name": "Velocity Java",
+                  "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                },
+                {
+                  "name": "Velocity JavaScript",
+                  "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                }
+              ]
+            },
+            {
+              "name": "END",
+              "info": "The Template Engine could not be determined."
+            }
+          ]
+        }
+
+      ]
+    },
+    {
+      "name": "{ ... }",
+      "info": "If { has been interpreted by the browser, use the following expressions to determine the Template Engine.",
+      "children": [
+        {
+          "name": "{math equation=7*7}",
+          "info": "This will constrict the possibilities to Smarty.",
+          "children": [
+            {
+              "name": "{date('Y')}",
+              "info": "This will attempt to call PHP's date function and will render the current year if the server uses Smarty with PHP (Smarty Security). ",
+              "children": [
+                {
+                  "name": "Smarty Security",
+                  "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                },
+                {
+                  "name": "Smarty Default",
+                  "info": "If you followed the decision tree and reached this node, then you are working with this Template Engine."
+                }
+              ]
+            },
+            {
+              "name": "END",
+              "info": "The Template Engine could not be determined."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+} 

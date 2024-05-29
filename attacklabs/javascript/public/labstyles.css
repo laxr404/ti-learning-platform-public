@@ -1,0 +1,109 @@
+﻿/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+}
+
+/* Header Styles */
+header {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Navigation Menu Styles */
+nav ul {
+    padding: 0;
+    list-style: none;
+}
+
+    nav ul li {
+        display: inline;
+        margin-right: 10px;
+    }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+/* Section Styles */
+section {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    background: #333;
+    color: #fff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive Grid for Products */
+#products ul {
+    padding: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+    #products ul li {
+        background: #fff;
+        padding: 20px;
+        text-align: center;
+    }
+
+/* Hover Effects for Links */
+a:hover {
+    color: #ddd;
+}
+
+/* Product Images Styles */
+#products img {
+    max-width: 100%; /* Ensures image is not wider than its container */
+    max-height: 300px; /* Sets a maximum height for the images */
+    width: auto; /* Maintains the aspect ratio */
+    height: auto; /* Maintains the aspect ratio */
+    display: block; /* Removes extra space below the image */
+    margin: 10px auto; /* Centers the image in its container and adds some space around it */
+    object-fit: cover; /* Ensures the image covers the area without stretching */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    #products img {
+        max-width: 100%;
+        max-height: 200px;
+    }
+}
+
+.buy-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.stock-message {
+    color: red;
+    font-weight: bold;
+    padding-left: 30px;
+}
+

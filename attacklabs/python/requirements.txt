@@ -1,0 +1,5 @@
+Flask==2.0.3
+Flask-Mako==0.3
+django==3.2
+mako==1.1.6
+Werkzeug==2.0.3

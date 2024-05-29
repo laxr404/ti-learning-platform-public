@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TI Learning Platform</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css">
+    <script>
+        // Check if a mode preference is saved in local storage
+        const savedMode = localStorage.getItem('mode');
+
+        // Apply the saved mode or default to light mode
+        if (savedMode === 'dark') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+
+</head>
+<body>
+
+    <div class="container">
+        <div id="menu"></div>
+
+
+        <main class="center-content">
+            <div class="content">
+                <h1>Template Injection Learning Platform</h1>
+                <p>Ready to test your skills? Click the "Enter Lab" button to begin the Challenge. Remember, it’s about learning and improving, so take your time and enjoy the process!</p>
+
+                <div class="warning">
+                    <p><strong>Important Notice:</strong></p>
+                    <p>The actual challenges are only accessible when the full platform is hosted on a local virtual machine. This is to ensure a safe and controlled environment for all users, preventing any unauthorized or potentially harmful activities on public networks.</p>
+                </div>
+
+                <h2>Attack Lab: Basic 2</h2>
+                <p>This challenge is designed for advanced beginners, but it's also a great refresher for more experienced users.</p>
+                <p>Using Burp Suite is not necessary for this challenge, but may be of help.</p>
+                <h3>Goal:</h3>
+                <p>Identify the template engine!</p>
+                <div class="lab-list">
+                    <a class="lab" href="attacklabs/lab/lab_b2" id="lab-b2" target="_blank">Enter Lab: Basic 2</a>
+                </div>
+
+                <h2>Hints</h2>
+                <div class="ui accordion">
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Hint 1
+                    </div>
+                    <div class="content">
+                        <p>Take a look at your URL.</p>
+                    </div>
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Hint 2
+                    </div>
+                    <div class="content">
+                        <p>URL's usually encode their special characters. If you are stuck, try this: <a href="https://en.wikipedia.org/wiki/Percent-encoding">https://en.wikipedia.org/wiki/Percent-encoding</a> </p>
+                    </div>
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Hint 3
+                    </div>
+                    <div class="content">
+                        <p>You are dealing with <%= … > syntax. </p>
+                    </div>
+                </div>
+
+                <h2>Solution</h2>
+                <p>Click below to show the solution.</p>
+                <div class="ui accordion">
+                    <div class="title">
+                        <i class="dropdown icon"></i>
+                        Spoiler
+                    </div>
+                    <div class="content">
+                        <p>Step 1: Paste the Polyglot after encoding: <code>&lt;&#37;&#39;&#36;&#123;&#123;/&#35;&#64;&#125;&#125;&#37;&gt;&#123;&#123;</code> in the URL after stockMessage=.</p>
+                        <p>Step 2: An error is shown. Try removing parts of the Polyglot to determine the syntax.</p>
+                        <p>Step 3: Based on <a href="../attacklabs/tutorial.html#polyglot-manipulation">Polyglot Manipulation</a>, you are dealing with <code><%= … %></code> syntax.</p>
+                        <p>Step 4: Test syntax with encoded <code><%= 7*7 %></code>, then follow the decision tree and encode all payloads.</p>
+                        <p>Step 5: The payload <code><%= const number = 10; %></code> after encoding outputs no error. Move further along the tree.</p>
+                        <p>Step 6: The Final IDP for EJS returns an error, therefore we are dealing with EJS.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui divider"></div>
+
+            <div class="button-container">
+                <!-- With a new element using Semantic UI icons -->
+                <div id="toggle-mode" class="ui icon button">
+                    <i class="moon outline icon"></i> <!-- Moon icon for dark mode -->
+                    <i class="sun icon"></i> <!-- Sun icon for light mode -->
+                </div>
+
+            </div>
+        </main>
+    </div>
+    <script type="module" src="../js/main.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+</body>
+</html>

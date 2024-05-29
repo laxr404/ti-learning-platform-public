@@ -1,0 +1,666 @@
+﻿/* styles.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+
+
+.container {
+    display: flex;
+    background-color: #F2F3F4;
+    color: #333;
+    flex-direction: row;
+    flex-grow: 1;
+    max-height: 100vh;
+    overflow-y: auto;
+}
+
+/* Dark mode styles */
+.dark-mode .container {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    background-color: #2a2a2a;
+    color: #d5d8db;
+}
+
+
+.dark-mode {
+    /*background-color: #fff;
+        #619eb3
+        #688293
+    color: #F2F3F4;*/
+}
+
+
+body.dark-mode {
+    background-color: #3c3c3c;
+    color: #d5d8db;
+}
+
+
+    body.dark-mode .ui.left.fixed.vertical.menu {
+        background-color: #3c3c3c;
+        color: #d5d8db;
+    }
+
+    body.dark-mode .ui.accordion .title {
+        color: #d5d8db;
+    }
+
+.ui.accordion .title {
+    font-size: 20px !important;
+    font-family: Arial, sans-serif !important;
+}
+
+
+.ui.left.fixed.vertical.menu {
+    background-color: #555555;
+    color: #F2F3F4;
+    padding: 0px;
+    box-shadow: 5px 0px 15px 5px rgba(0,0,0,0.1);
+    width: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateY(0);
+    z-index: 1000; 
+}
+
+    .ui.left.fixed.vertical.menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .ui.left.fixed.vertical.menu li {
+        margin: 0;
+    }
+
+    /* Adjust font sizes for links */
+    .ui.left.fixed.vertical.menu a {
+        display: block;
+        padding: 10px 20px;
+        width: 100%;
+        color: #F2F3F4;
+        text-decoration: none;
+        font-size: 20px;
+    }
+
+        /* Active menu item styles */
+        .ui.left.fixed.vertical.menu a.active {
+            background-color: #333;
+            color: #d5d8db;
+            font-weight: bold;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+    /* Ensure the dropdown menus can overflow and appear above other content */
+    .ui.left.fixed.vertical.menu .menu {
+        position: absolute; 
+        top: 0; 
+        z-index: 1001; 
+        width: 100%; 
+    }
+
+    .ui.left.fixed.vertical.menu .dropdown.item .menu {
+        top: 0; 
+        left: 100%; 
+        margin-top: 0; 
+    }
+
+    .ui.left.fixed.vertical.menu .dropdown.item:hover .menu {
+        display: block; 
+    }
+
+    .ui.left.fixed.vertical.menu .dropdown.item .menu .item {
+        white-space: nowrap; 
+        padding: 10px 20px; 
+    }
+
+.ui.divider {
+   
+}
+
+
+/* Dropdown item styles */
+.ui.dropdown.item {
+    position: relative;
+    cursor: pointer;
+    /*background-color: #555555;*/
+    color: #F2F3F4 !important;
+    font-size: 20px;
+    display: block;
+    padding: 10px 20px !important;
+    width: 100%;
+    
+    
+}
+    .ui.dropdown.item:hover {
+        
+    }
+
+body.dark-mode .ui.dropdown.item {
+    /*background-color: #3c3c3c;*/
+    color: #d5d8db !important;
+}
+
+
+.ui.dropdown.item .menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    left: 100%;
+    top: 0;
+    width: 370px !important;
+    background-color: #555555;
+    color: #F2F3F4;
+    box-shadow: 5px 0px 15px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1001;
+    font-size: 14px;
+    
+}
+
+.ui.dropdown.item:hover .menu {
+    display: block; /* Show on hover */
+}
+
+    .ui.dropdown.item .menu .item {
+        white-space: nowrap;
+        padding: 10px 20px;
+        color: #F2F3F4;
+    }
+
+/* Dropdown icon styles */
+.dropdown.icon {
+    float: right;
+    margin-left: 10px;
+}
+
+body.dark-mode .ui.dropdown.icon{
+    background-color: #3c3c3c;
+    color: #d5d8db;
+}
+
+
+
+
+
+
+/* Modify the .center-content styles */
+.center-content {
+    flex-grow: 1;
+    display: block;
+    /*justify-content: left; */
+    padding-left: 340px;
+    box-sizing: border-box;
+    position: relative; /* Ensure it is positioned relative to the menu */
+    z-index: 1; /* Lower z-index to keep it behind the dropdown */
+}
+
+
+
+/* Style content in title-paragraph style */
+.content {
+    text-align: left;
+    padding-bottom: 50px;
+    padding-left: 0px;
+}
+
+    .content h1 {
+        font-size: 48px;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+        font-variant: small-caps;
+        padding-left: 0 !important;
+    }
+
+    .content h2 {
+        font-size: 36px;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+        padding-left: 0 !important;
+    }
+
+    .content h3 {
+        font-size: 26px;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+        padding-left: 0 !important;
+    }
+
+    .content h4 {
+        font-size: 22px;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+        padding-left: 0 !important;
+    }
+    .content p {
+        font-size: 20px;
+    }
+
+
+
+
+
+.button-container {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+}
+
+.dark-mode .toggle-button {
+    background-color: #fff;
+}
+
+    .dark-mode .toggle-button::before {
+        transform: translateY(-50%) scaleX(-1);
+    }
+
+/* Decision Tree Styles */
+.node text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 8ch;
+    fill: black;
+}
+
+
+
+
+.dark-mode .node text {
+    fill: #F2F3F4;
+}
+
+
+.link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 2px;
+}
+
+.info-panel {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    z-index: 1000;
+}
+
+    .info-panel h3 {
+        margin: 0;
+    }
+
+    .info-panel p {
+        margin-top: 10px;
+    }
+
+
+
+/* Info panel styles */
+.info-panel {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding-top: 15px;
+    padding-right: 60px;
+}
+
+    /* Style for the close button with no background */
+    .info-panel .ui.icon.button#closeButton {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 15px;
+        background-color: transparent;
+    }
+
+
+    /* Style for the clipboard button */
+    .info-panel .ui.icon.button#copyButton {
+        position: absolute;
+        top: 0px;
+        right: 30px;
+        font-size: 15px;
+        background-color: transparent;
+    }
+
+/* Lighter icons in dark mode */
+.dark-mode .info-panel .ui.icon.button#copyButton i,
+.dark-mode .info-panel .ui.icon.button#closeButton i {
+    color: #ccc;
+}
+
+
+
+
+.dark-mode .info-panel {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+/* Default table styles */
+.ui.sortable.celled.table {
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+    .ui.sortable.celled.table thead th {
+        background-color: #555555;
+        color: #F2F3F4;
+        border: 1px solid #ddd;
+        cursor: pointer;
+    }
+
+    /* Dark mode styles for sorted header */
+    .ui.sortable.celled.table th.sorted {
+        background-color: #555555;
+        color: #F2F3F4;
+    }
+
+
+    .ui.sortable.celled.table tbody td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    .ui.sortable.celled.table tfoot th {
+        background-color: lightgray;
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+/* Dark mode styles for the entire page */
+body.dark-mode {
+    /* Modify the background color and text color for the entire page in dark mode */
+    background-color: #3c3c3c;
+    color: #d5d8db;
+}
+
+    /* Dark mode styles for the table */
+    body.dark-mode .ui.sortable.celled.table {
+        border: 1px solid #555555;
+    }
+
+        body.dark-mode .ui.sortable.celled.table thead th {
+            background-color: #333;
+            color: #d5d8db;
+            border: 1px solid #555555;
+        }
+
+        /* Dark mode styles for sorted header */
+        body.dark-mode .ui.sortable.celled.table th.sorted {
+            background-color: #2b2b2b;
+            color: #d5d8db;
+        }
+
+
+        body.dark-mode .ui.sortable.celled.table tbody td {
+            border: 1px solid #555555;
+            background-color: #444;
+            color: #d5d8db;
+        }
+
+        body.dark-mode .ui.sortable.celled.table tfoot th {
+            border: 1px solid #555555;
+            background-color: darkgray;
+            color: #F2F3F4;
+        }
+
+/* Active table header styles */
+.ui.sortable.celled.table th.sorted.ascending::before,
+.ui.sortable.celled.table th.sorted.descending::before {
+    content: '\f0dc';
+    font-family: Icons;
+    float: right;
+    margin-right: 5px;
+}
+
+.ui.sortable.celled.table th.sorted.descending::before {
+    transform: scaleY(-1);
+}
+
+/* Styles for cell statuses */
+.ui.sortable.celled.table .positive {
+    background-color: #d4edda !important;
+}
+
+.ui.sortable.celled.table .negative {
+    background-color: #f8d7da !important;
+}
+
+.ui.sortable.celled.table .warning {
+    background-color: #fff3cd !important;
+}
+
+/* Dark mode styles for cell statuses */
+body.dark-mode .ui.sortable.celled.table tbody td.positive {
+    background-color: #444 !important;
+}
+
+body.dark-mode .ui.sortable.celled.table .negative {
+    background-color: #444 !important;
+}
+
+body.dark-mode .ui.sortable.celled.table .warning {
+    background-color: #444 !important;
+    color: #fff3cd !important;
+}
+
+/* Styles for light mode */
+.ui.sortable.celled.table thead th:hover {
+    background-color: gray !important;
+    color: #F2F3F4 !important;
+}
+
+/* Styles for dark mode */
+body.dark-mode .ui.sortable.celled.table thead th:hover {
+    background-color: #555555 !important;
+}
+
+.lab-list {
+    max-width: 150px;
+}
+
+    .lab-list .lab {
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 8px 12px;
+        background-color: #555555;
+        color: #F2F3F4;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        width: auto;
+        min-width: 150px;
+        box-sizing: border-box;
+    }
+
+        .lab-list .lab:hover {
+            background-color: lightgray;
+            color: #555555;
+        }
+
+        .lab-list .lab:focus {
+            outline: none;
+        }
+
+        .lab-list .lab:active {
+            background-color: #d0d0d0;
+        }
+
+.lab-list-long {
+    max-width: 270px;
+}
+
+    .lab-list-long .lab {
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 8px 12px;
+        background-color: #555555;
+        color: #F2F3F4;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 4px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        width: auto;
+        min-width: 150px;
+        box-sizing: border-box;
+    }
+
+        .lab-list-long .lab:hover {
+            background-color: lightgray;
+            color: #555555;
+        }
+
+        .lab-list-long .lab:focus {
+            outline: none;
+        }
+
+        .lab-list-long .lab:active {
+            background-color: #d0d0d0;
+        }
+
+
+/* Styles for the Interactive Decision Tree Explanation */
+.decision-tree-explanation li {
+    color: #333;
+    background-color: #f0f0f0;
+    border-left: 4px solid #890c0c;
+    padding: 8px 16px;
+    margin-bottom: 10px;
+    list-style-type: none;
+}
+/* Dark Mode Styles for the Interactive Decision Tree Explanation */
+body.dark-mode .decision-tree-explanation li {
+    color: #d1d1d1;
+    background-color: #242424;
+    border-left: 4px solid #890c0c;
+    padding: 8px 16px;
+    margin-bottom: 10px;
+    list-style-type: none;
+}
+
+.legend li {
+    color: #333;
+    /*background-color: #515c64; */
+    /*border-radius: 5px;*/
+    padding: 8px 16px;
+    margin-bottom: 8px;
+    list-style: inside square;
+}
+
+body.dark-mode .legend li {
+    color: #e9ecef;
+    /*background-color: #343a40; */
+    /*border-radius: 5px; */
+    padding: 8px 16px;
+    margin-bottom: 8px;
+    list-style: inside square;
+}
+
+
+.shortlist li {
+    color: #333;
+    font-size: 16px;
+    /*background-color: #515c64; */
+    /*border-radius: 5px;*/
+    padding: 2px 16px;
+    margin-bottom: 4px;
+    list-style: inside square;
+}
+
+body.dark-mode .shortlist li {
+    color: #e9ecef;
+    font-size: 16px;
+    /*background-color: #343a40; */
+    /*border-radius: 5px; */
+    padding: 2px 16px;
+    margin-bottom: 4px;
+    list-style: inside square;
+}
+
+.longlist li {
+    color: #333;
+    font-size: 16px;
+    /*background-color: #343a40; */
+    /*border-radius: 5px; */
+    max-width: 160px;
+    padding: 2px 8px;
+    margin-bottom: 0px;
+    list-style: inside square;
+}
+
+body.dark-mode .longlist li {
+    color: #e9ecef;
+    font-size: 16px;
+    /*background-color: #343a40; */
+    /*border-radius: 5px; */
+    max-width: 160px;
+    padding: 2px 8px;
+    margin-bottom: 0px;
+    list-style: inside square;
+}
+
+.warning {
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 1px solid #ff0000;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    color: #333;
+    font-size: 1em;
+}
+
+body.dark-mode .warning {
+    color: #d1d1d1;
+}
+
+.pink {
+    color: #dd17f3 !important;
+}
+
+.blue {
+    color: #0a6cf3 !important;
+}
+
+.blue-orange {
+    color: #532900 !important;
+}
+
+.orange {
+    color: #c66d00 !important;
+}
+
+.yellow {
+    color: #ffb400 !important;
+}
+
+.white {
+    /*color: #ffffff;  */
+}
+
+.logo {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centers the image */
+    width: 150px !important;
+}

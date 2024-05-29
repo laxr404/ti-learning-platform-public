@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TI Learning Platform - Decision Tree</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <div id="menu"></div>
+
+
+        <main class="center-content">
+
+            <div class="content">
+                <h1>Interactive Decision Tree</h1>
+                <h2>Identify the Template Engine via Payloads</h2>
+                <p>Welcome to the Interactive Decision Tree, a tool specifically designed to help you identify the template engine used in a web application through various payloads. This decision tree is an intuitive, click-based guide that leads you through a series of choices and outcomes, ultimately helping you pinpoint the template engine in question.</p>
+
+                <h3>How It Works:</h3>
+                <ul class="decision-tree-explanation">
+                    <li><strong>Start at the Root:</strong> Begin at the root node of the tree, where you'll find the initial question or payload.</li>
+                    <li><strong>Choose and Click:</strong> Make a choice based on the information or results you have, and simply click on the corresponding node.</li>
+                    <li><strong>Navigate Through the Tree:</strong> As you make selections, the path you follow will lead you to the result.</li>
+                    <li><strong>Reach Your Conclusion:</strong> Continue through the tree until you reach a node that identifies the template engine.</li>
+                </ul>
+
+                <h3>Legend:</h3>
+                <ul class="legend">
+                    <li><strong>[blue dot]</strong> - Initial Node: Start here.</li>
+                    <li><strong>[gray dot]</strong> - Decision Node: Click these to progress based on your findings.</li>
+                    <li><strong>[orange dot]</strong> - Jump Node: Indicates a jump to a paired node.</li>
+                    <li><strong>[red or green dot]</strong> - Leaf Node: Indicates an identified template engine or the end of that path.</li>
+                </ul>
+
+
+
+                <p>This tool is designed to be a hands-on guide for both beginners and experienced users. Just click through the nodes and uncover the insights you need!</p>
+
+
+                <h2>Decision Tree</h2>
+
+                <div id="decisionTree"></div>
+
+            </div>
+
+
+
+
+            <div class="ui divider"></div>
+
+            <div class="button-container">
+                <!-- With a new element using Semantic UI icons -->
+                <div id="toggle-mode" class="ui icon button">
+                    <i class="moon outline icon"></i> <!-- Moon icon for dark mode -->
+                    <i class="sun icon"></i> <!-- Sun icon for light mode -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        //import { applyDarkModePreference, toggleDarkMode } from './js/main.js';
+        import { createTree } from './js/tree.js';
+
+        window.onload = function () {
+            createTree();
+        };
+    </script>
+
+    <script type="module" src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+
+</body>
+</html>

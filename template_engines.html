@@ -1,0 +1,1097 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TI Learning Platform - Decision Tree</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <div id="menu"></div>
+
+
+        <main class="center-content">
+
+            <div class="content">
+
+
+                <h1>Consolidated Data</h1>
+                <p>Welcome to our extensive resource, where we've meticulously compiled a comprehensive table of various template engines that we've tested. This table serves as an invaluable tool for developers, security professionals, and researchers who are exploring the capabilities, vulnerabilities, and unique characteristics of different template engines used in web applications.</p>
+
+                <h2>Features:</h2>
+                <ul class="decision-tree-explanation">
+                    <li><strong>Detailed Information:</strong> Each entry in the tables provides essential details about the template engine, including its name, version, known vulnerabilities, and special features.</li>
+                    <li><strong>Ease of Comparison:</strong> Organized for your convenience, the table allows you to easily compare different template engines to determine which best fits your specific requirements or to understand their security implications.</li>
+                </ul>
+
+                <h3>Legend:</h3>
+                <div class="content">
+                    <ul class="legend">
+                        <li><strong>IDP:</strong> Identifying Payload - Payload that is used to identify a certain template engine or group of template engines. </li>
+                        <li><strong>Final IDP:</strong> Final Identifying Payload - The final payload that is used to identify a specific template engine. </li>
+                        <li><strong>Basic Syntax:</strong> The syntax that is default to specific template engines. </li>
+                    </ul>
+                </div>
+
+
+                <div class="warning">
+                    <p><strong>Important Notice:</strong></p>
+                    <p>The Final IDP's that are included in the list may only work in the context of the decision tree as there may be some overlap with other template engines.</p>
+                </div>
+
+
+                <table class="ui sortable celled table">
+                    <thead>
+                        <tr>
+                            <th class="">Template Engine</th>
+                            <th class="">Programming Language</th>
+                            <th class="">Tested for IDP</th>
+                            <th class="">Decision Tree integration</th>
+                            <th class="">Final IDP</th>
+                            <th class="">Syntax Group</th>
+                            <th class="">Notes</th>
+                            <th class="">Documentation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cheetah</td>
+                            <td>Python</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>$someVar</td>
+                            <td class="blue">Blue</td>
+                            <td></td>
+                            <td><a href="https://cheetahtemplate.org/">https://cheetahtemplate.org/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Expression Language</td>
+                            <td>Java</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>${(10*10) ne 100}</td>
+                            <td class="blue">Blue</td>
+                            <td>EL is outside the testing environment but was able to be integrated into the dec tree.</td>
+                            <td><a href="https://docs.oracle.com/javaee/7/tutorial/jsf-el.htm">https://docs.oracle.com/javaee/7/tutorial/jsf-el.htm</a></td>
+                        </tr>
+                        <tr>
+                            <td>Freemarker</td>
+                            <td>Java</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>${(7*7)?c}</td>
+                            <td class="blue">Blue</td>
+                            <td></td>
+                            <td><a href="https://freemarker.apache.org/">https://freemarker.apache.org/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Mako</td>
+                            <td>Python</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>${str(&#x27;text&#x27;).upper()}</td>
+                            <td class="blue">Blue</td>
+                            <td></td>
+                            <td><a href="https://docs.makotemplates.org/en/latest/">https://docs.makotemplates.org/en/latest/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Marko</td>
+                            <td>JavaScript</td>
+                            <td class="positive">Yes</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td class="blue">Blue</td>
+                            <td>Testing Marko has been proven to be difficult since it is not part of the testing environment as well as in a group that already has a TE outside the testing environment. The testing method does not allow for two of those inside a single group for consistency.</td>
+                            <td><a href="https://markojs.com/docs/getting-started/">https://markojs.com/docs/getting-started/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Thymeleaf Default</td>
+                            <td>Java</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>[[${ 7*7 }]]</td>
+                            <td class="blue">Blue</td>
+                            <td></td>
+                            <td><a href="https://www.thymeleaf.org/documentation.html">https://www.thymeleaf.org/documentation.html</a></td>
+                        </tr>
+                        <tr>
+                            <td>Thymeleaf Inline</td>
+                            <td>Java</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>${#strings.toUpperCase(&#x27;thymeleaf&#x27;)}</td>
+                            <td class="blue">Blue</td>
+                            <td></td>
+                            <td><a href="https://www.thymeleaf.org/documentation.html">https://www.thymeleaf.org/documentation.html</a></td>
+                        </tr>
+                        <tr>
+                            <td>Groovy</td>
+                            <td>Java</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>&lt;%= 7*7 %&gt;, ${7*7}</td>
+                            <td class="blue-orange">Blue,Orange</td>
+                            <td></td>
+                            <td><a href="https://groovy-lang.org/documentation.html">https://groovy-lang.org/documentation.html</a></td>
+                        </tr>
+                        <tr>
+                            <td>EJS (Embedded JavaScript)</td>
+                            <td>JavaScript</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>&lt;% const number = 10; %&gt;</td>
+                            <td class="orange">Orange</td>
+                            <td></td>
+                            <td><a href="https://ejs.co/">https://ejs.co/</a></td>
+                        </tr>
+                        <tr>
+                            <td>ERB (Embedded Ruby)</td>
+                            <td>Ruby</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>&lt;%= &quot;Number: #{10 + 10}&quot; %&gt;</td>
+                            <td class="orange">Orange</td>
+                            <td></td>
+                            <td><a href="https://docs.ruby-lang.org/en/2.3.0/ERB.html">https://docs.ruby-lang.org/en/2.3.0/ERB.html</a></td>
+                        </tr>
+                        <tr>
+                            <td>Eta</td>
+                            <td>JavaScript</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>&lt;%~ 7*7 &gt;</td>
+                            <td class="orange">Orange</td>
+                            <td></td>
+                            <td><a href="https://eta.js.org/">https://eta.js.org/</a></td>
+                        </tr>
+                        <tr>
+                            <td>MojoLicious</td>
+                            <td>Perl</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>%= 7*7 %</td>
+                            <td class="orange">Orange</td>
+                            <td></td>
+                            <td><a href="https://docs.mojolicious.org/Mojolicious/Guides">https://docs.mojolicious.org/Mojolicious/Guides</a></td>
+                        </tr>
+                        <tr>
+                            <td>Underscore</td>
+                            <td>JavaScript</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>&lt;% _.each([1, 2, 3], function(num) { %&gt;&lt;p&gt;Number &lt;%= num %&gt;&lt;/p&gt;&lt;% }); %&gt;</td>
+                            <td class="orange">Orange</td>
+                            <td></td>
+                            <td><a href="https://underscorejs.org/">https://underscorejs.org/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Jade</td>
+                            <td>NodeJS</td>
+                            <td class="positive">Yes</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td class="pink">Pink</td>
+                            <td>Jade has been renamed to Pug and is thus not part of the dec tree.</td>
+                            <td><a href="https://jade-lang.com/">https://jade-lang.com/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Pug Default</td>
+                            <td>JavaScript</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>#{7*7}</td>
+                            <td class="pink">Pink</td>
+                            <td></td>
+                            <td><a href="https://pugjs.org/api/getting-started.html">https://pugjs.org/api/getting-started.html</a></td>
+                        </tr>
+                        <tr>
+                            <td>Pug Inline</td>
+                            <td>JavaScript</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>#{new Date().getFullYear()}</td>
+                            <td class="pink">Pink</td>
+                            <td></td>
+                            <td><a href="https://pugjs.org/api/getting-started.html">https://pugjs.org/api/getting-started.html</a></td>
+                        </tr>
+                        <tr>
+                            <td>Slim</td>
+                            <td>Ruby</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>#{{7*7}}</td>
+                            <td class="pink">Pink</td>
+                            <td></td>
+                            <td><a href="https://www.slimframework.com/docs/v3/features/templates.html">https://www.slimframework.com/docs/v3/features/templates.html</a></td>
+                        </tr>
+                        <tr>
+                            <td>Haml</td>
+                            <td>Ruby</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>#{7*7}</td>
+                            <td class="pink">Pink</td>
+                            <td></td>
+                            <td><a href="https://haml.info/docs.html">https://haml.info/docs.html</a></td>
+                        </tr>
+                        <tr>
+                            <td>JsRender</td>
+                            <td>NodeJS</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>{{:7*7}}</td>
+                            <td>White</td>
+                            <td></td>
+                            <td><a href="https://github.com/BorisMoore/jsrender - documentation-and-downloads">https://github.com/BorisMoore/jsrender - documentation-and-downloads</a></td>
+                        </tr>
+                        <tr>
+                            <td>Plates</td>
+                            <td>PHP</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>&lt;?= 7 * 7 ?&gt;</td>
+                            <td>White</td>
+                            <td></td>
+                            <td><a href="https://platesphp.com/">https://platesphp.com/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Razor (ASP.NET)</td>
+                            <td>C#</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>@(7*7)</td>
+                            <td>White</td>
+                            <td></td>
+                            <td><a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0">https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0</a></td>
+                        </tr>
+                        <tr>
+                            <td>Smarty Default</td>
+                            <td>PHP</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>{math equation=7*7}</td>
+                            <td>White</td>
+                            <td></td>
+                            <td><a href="https://www.smarty.net/documentation">https://www.smarty.net/documentation</a></td>
+                        </tr>
+                        <tr>
+                            <td>Smarty Security</td>
+                            <td>PHP</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>{date(&#x27;Y&#x27;)}</td>
+                            <td>White</td>
+                            <td></td>
+                            <td><a href="https://www.smarty.net/documentation">https://www.smarty.net/documentation</a></td>
+                        </tr>
+                        <tr>
+                            <td>Velocity Java</td>
+                            <td>Java</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>#evaluate("Velocity")</td>
+                            <td>White</td>
+                            <td></td>
+                            <td><a href="https://velocity.apache.org/">https://velocity.apache.org/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Velocity JS</td>
+                            <td>Java</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>#evaluate("Velocity")</td>
+                            <td>White</td>
+                            <td></td>
+                            <td><a href="https://velocity.apache.org/">https://velocity.apache.org/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Blade (Laravel)</td>
+                            <td>PHP</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>@php  echo &#x27;This is Blade.&#x27;@endphp</td>
+                            <td class="yellow">Yellow</td>
+                            <td></td>
+                            <td><a href="https://laravel.com/docs/10.x/blade">https://laravel.com/docs/10.x/blade</a></td>
+                        </tr>
+                        <tr>
+                            <td>Django</td>
+                            <td>Python</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>{{ count }} item{{ count|pluralize }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td></td>
+                            <td><a href="https://docs.djangoproject.com/en/3.2/topics/templates/">https://docs.djangoproject.com/en/3.2/topics/templates/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Handlebars</td>
+                            <td>NodeJS / JS</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>{{#if condition}}  True{{else}}  False{{/if}}</td>
+                            <td class="yellow">Yellow</td>
+                            <td></td>
+                            <td><a href="https://handlebarsjs.com/guide/">https://handlebarsjs.com/guide/</a></td>
+                        </tr>
+                        <tr>
+                            <td>html/template</td>
+                            <td>GO</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>{{define &quot;T1&quot;}}&lt;script&gt;alert(1)&lt;/script&gt;{{end}} {{template &quot;T1&quot;}}</td>
+                            <td class="yellow">Yellow</td>
+                            <td></td>
+                            <td><a href="https://go.dev/doc/">https://go.dev/doc/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Hubspot - HuBL</td>
+                            <td>Java</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>{% set book = {&quot;name&quot; : &quot;Rocking HubL&quot;, &quot;author&quot; : &quot;John Smith&quot; }%}{% do book.update({&quot;ebook&quot; : &quot;yes&quot;}) %}{{book}}</td>
+                            <td class="yellow">Yellow</td>
+                            <td></td>
+                            <td><a href="https://developers.hubspot.com/docs/cms/hubl">https://developers.hubspot.com/docs/cms/hubl</a></td>
+                        </tr>
+                        <tr>
+                            <td>Jinja2</td>
+                            <td>Python</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>{{config}}</td>
+                            <td class="yellow">Yellow</td>
+                            <td></td>
+                            <td><a href="https://jinja.palletsprojects.com/">https://jinja.palletsprojects.com/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Liquid</td>
+                            <td>Ruby</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>{{ 7 | times: 7 }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td></td>
+                            <td><a href="https://shopify.github.io/liquid/">https://shopify.github.io/liquid/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Mustache</td>
+                            <td>Various</td>
+                            <td class="positive">Yes</td>
+                            <td class="negative">No</td>
+                            <td>{{ . }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td>In Mustache the expression {{ . }} is used to refer to the current item in a context. In theory it can be used as an IDP for all Mustache implementations but testing has proven it too inconsistent on whether it actually interprets it.</td>
+                            <td><a href="https://mustache.github.io/">https://mustache.github.io/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Nunjucks</td>
+                            <td>JavaScript</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>{% set items = [&quot;a&quot;, 1, { b : true}] %}{{ items | dump }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td></td>
+                            <td><a href="https://mozilla.github.io/nunjucks/">https://mozilla.github.io/nunjucks/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Pebble</td>
+                            <td>Java</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>{% set danger = &quot;&lt;br&gt;&quot; %}{{ danger | uppercase | raw }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td></td>
+                            <td><a href="https://pebbletemplates.io/">https://pebbletemplates.io/</a></td>
+                        </tr>
+                        <tr>
+                            <td>text/template</td>
+                            <td>GO</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>{{ &quot;&lt;script&gt;alert(&#x27;test&#x27;)&lt;/script&gt;&quot; }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td></td>
+                            <td><a href="https://pkg.go.dev/text/template">https://pkg.go.dev/text/template</a></td>
+                        </tr>
+                        <tr>
+                            <td>Tornado</td>
+                            <td>Python</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>{% for i in range(3) %}  {{ i }}{% end %}</td>
+                            <td class="yellow">Yellow</td>
+                            <td></td>
+                            <td><a href="https://readthedocs.org/projects/tornado/">https://readthedocs.org/projects/tornado/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Twig JS</td>
+                            <td>JavaScript</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>{{ attribute({&#x27;a&#x27;: 1}, &#x27;a&#x27;) }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td></td>
+                            <td><a href="https://twig.symfony.com/doc/3.x/">https://twig.symfony.com/doc/3.x/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Twig PHP</td>
+                            <td>PHP</td>
+                            <td class="positive">Yes</td>
+                            <td class="positive">Yes</td>
+                            <td>{{ cycle([&#x27;odd&#x27;, &#x27;even&#x27;], loop.index0) }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td></td>
+                            <td><a href="https://twig.symfony.com/doc/3.x/">https://twig.symfony.com/doc/3.x/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Chameleon</td>
+                            <td>Python</td>
+                            <td class="negative">No</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td></td>
+                            <td><a href="https://chameleon.readthedocs.io/en/latest/">https://chameleon.readthedocs.io/en/latest/</a></td>
+                        </tr>
+                        <tr>
+                            <td>CTemplate</td>
+                            <td>C++</td>
+                            <td class="negative">No</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td></td>
+                            <td><a href="https://github.com/olafvdspek/ctemplate">https://github.com/olafvdspek/ctemplate</a></td>
+                        </tr>
+                        <tr>
+                            <td>doT.js</td>
+                            <td>JavaScript</td>
+                            <td class="negative">No</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td></td>
+                            <td><a href="http://olado.github.io/doT/">http://olado.github.io/doT/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Dust</td>
+                            <td>JavaScript</td>
+                            <td class="negative">No</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td></td>
+                            <td><a href="https://akdubya.github.io/dustjs/">https://akdubya.github.io/dustjs/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Eclipse JET</td>
+                            <td>Java</td>
+                            <td class="negative">No</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td></td>
+                            <td><a href="https://www.eclipse.org/modeling/m2t/?project=jet">https://www.eclipse.org/modeling/m2t/?project=jet</a></td>
+                        </tr>
+                        <tr>
+                            <td>FESTL</td>
+                            <td>Python</td>
+                            <td class="negative">No</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td></td>
+                            <td><a href="https://github.com/michael-herwig/festl">https://github.com/michael-herwig/festl</a></td>
+                        </tr>
+                        <tr>
+                            <td>GRMustache</td>
+                            <td>Objective-C</td>
+                            <td class="negative">No</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td></td>
+                            <td><a href="https://github.com/groue/GRMustache">https://github.com/groue/GRMustache</a></td>
+                        </tr>
+                        <tr>
+                            <td>Jinjava</td>
+                            <td>Java</td>
+                            <td class="negative">No</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td></td>
+                            <td><a href="https://github.com/HubSpot/jinjava/">https://github.com/HubSpot/jinjava/</a></td>
+                        </tr>
+                        <tr>
+                            <td>patTemplate</td>
+                            <td>PHP</td>
+                            <td class="negative">No</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td></td>
+                            <td><a href="https://github.com/wernerwa/pat-template">https://github.com/wernerwa/pat-template</a></td>
+                        </tr>
+                        <tr>
+                            <td>Pure</td>
+                            <td>Python</td>
+                            <td class="negative">No</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td></td>
+                            <td><a href="https://purecss.io/">https://purecss.io/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Ractive.js</td>
+                            <td>JavaScript</td>
+                            <td class="negative">No</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td></td>
+                            <td><a href="https://ractive.js.org/">https://ractive.js.org/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Rhythm</td>
+                            <td>Python</td>
+                            <td class="negative">No</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td></td>
+                            <td><a href="https://github.com/funkybob/rhythm">https://github.com/funkybob/rhythm</a></td>
+                        </tr>
+                        <tr>
+                            <td>Simplate</td>
+                            <td>Python</td>
+                            <td class="negative">No</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td></td>
+                            <td><a href="https://github.com/simplegeo/python-simplate">https://github.com/simplegeo/python-simplate</a></td>
+                        </tr>
+                        <tr>
+                            <td>Spacebars</td>
+                            <td>JavaScript</td>
+                            <td class="negative">No</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td></td>
+                            <td><a href="https://guide.meteor.com/blaze/spacebars.html">https://guide.meteor.com/blaze/spacebars.html</a></td>
+                        </tr>
+                        <tr>
+                            <td>Tempy</td>
+                            <td>Python</td>
+                            <td class="negative">No</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td></td>
+                            <td><a href="https://tempy.readthedocs.io/en/latest/">https://tempy.readthedocs.io/en/latest/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Wookmark</td>
+                            <td>JavaScript</td>
+                            <td class="negative">No</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td></td>
+                            <td><a href="https://www.wookmark.com/">https://www.wookmark.com/</a></td>
+                        </tr>
+                        <tr>
+                            <td>XSLT</td>
+                            <td>XML-based</td>
+                            <td class="negative">No</td>
+                            <td class="negative">No</td>
+                            <td>N/A</td>
+                            <td>N/A</td>
+                            <td></td>
+                            <td><a href="https://www.w3.org/TR/xslt-30/">https://www.w3.org/TR/xslt-30/</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2 id="tables-divided-by-groups">Tables Divided By Groups</h2>
+                <h3>GroupPink</h3>
+
+                <table class="ui sortable celled table">
+                    <thead>
+                        <tr>
+                            <th class="">Template Engine</th>
+                            <th class="">Programming Language</th>
+                            <th class="">Final IDP</th>
+                            <th class="">Basic Syntax</th>
+                            <th class="">Syntax Group</th>
+                            <th class="">Documentation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jade</td>
+                            <td>NodeJS</td>
+                            <td>N/A</td>
+                            <td>#{expression}</td>
+                            <td class="pink">Pink</td>
+                            <td><a href="https://jade-lang.com/">https://jade-lang.com/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Pug Default</td>
+                            <td>JavaScript</td>
+                            <td>#{7*7}</td>
+                            <td>#{expression} =expression</td>
+                            <td class="pink">Pink</td>
+                            <td><a href="https://pugjs.org/api/getting-started.html">https://pugjs.org/api/getting-started.html</a></td>
+                        </tr>
+                        <tr>
+                            <td>Pug Inline</td>
+                            <td>JavaScript</td>
+                            <td>#{new Date().getFullYear()}</td>
+                            <td>#{expression}</td>
+                            <td class="pink">Pink</td>
+                            <td><a href="https://pugjs.org/api/getting-started.html">https://pugjs.org/api/getting-started.html</a></td>
+                        </tr>
+                        <tr>
+                            <td>Slim</td>
+                            <td>Ruby</td>
+                            <td>#{{7*7}}</td>
+                            <td>#{expression} #{{expression}}</td>
+                            <td class="pink">Pink</td>
+                            <td><a href="https://www.slimframework.com/docs/v3/features/templates.html">https://www.slimframework.com/docs/v3/features/templates.html</a></td>
+                        </tr>
+                        <tr>
+                            <td>Haml</td>
+                            <td>Ruby</td>
+                            <td>#{7*7}</td>
+                            <td>= expression #{expression} #{{expression}}</td>
+                            <td class="pink">Pink</td>
+                            <td><a href="https://haml.info/docs.html">https://haml.info/docs.html</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+
+                <h3>GroupBlue</h3>
+
+                <table class="ui sortable celled table">
+                    <thead>
+                        <tr>
+                            <th class="">Template Engine</th>
+                            <th class="">Programming Language</th>
+                            <th class="">Final IDP</th>
+                            <th class="">Basic Syntax</th>
+                            <th class="">Syntax Group</th>
+                            <th class="">Documentation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cheetah</td>
+                            <td>Python</td>
+                            <td>$someVar</td>
+                            <td>{$expression} {${expression}} $(expression) $[expression]</td>
+                            <td class="blue">Blue</td>
+                            <td><a href="https://cheetahtemplate.org/">https://cheetahtemplate.org/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Expression Language</td>
+                            <td>Java</td>
+                            <td>${(10*10) ne 100}</td>
+                            <td>${ expression } #{ expression }</td>
+                            <td class="blue">Blue</td>
+                            <td><a href="https://docs.oracle.com/javaee/7/tutorial/jsf-el.htm">https://docs.oracle.com/javaee/7/tutorial/jsf-el.htm</a></td>
+                        </tr>
+                        <tr>
+                            <td>Freemarker</td>
+                            <td>Java</td>
+                            <td>${(7*7)?c}</td>
+                            <td>${ expression } #{ expression } [= expression ]</td>
+                            <td class="blue">Blue</td>
+                            <td><a href="https://freemarker.apache.org/">https://freemarker.apache.org/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Mako</td>
+                            <td>Python</td>
+                            <td>${str('text').upper()}</td>
+                            <td>${ expression }</td>
+                            <td class="blue">Blue</td>
+                            <td><a href="https://docs.makotemplates.org/en/latest/">https://docs.makotemplates.org/en/latest/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Marko</td>
+                            <td>JavaScript</td>
+                            <td>N/A</td>
+                            <td>${ expression } or $!{ expression }</td>
+                            <td class="blue">Blue</td>
+                            <td><a href="https://markojs.com/docs/getting-started/">https://markojs.com/docs/getting-started/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Thymeleaf Default</td>
+                            <td>Java</td>
+                            <td>[[${ 7*7 }]]</td>
+                            <td>${expression}</td>
+                            <td class="blue">Blue</td>
+                            <td><a href="https://www.thymeleaf.org/documentation.html">https://www.thymeleaf.org/documentation.html</a></td>
+                        </tr>
+                        <tr>
+                            <td>Thymeleaf Inline</td>
+                            <td>Java</td>
+                            <td>${#strings.toUpperCase('thymeleaf')}</td>
+                            <td>${expression}</td>
+                            <td class="blue">Blue</td>
+                            <td><a href="https://www.thymeleaf.org/documentation.html">https://www.thymeleaf.org/documentation.html</a></td>
+                        </tr>
+                        <tr>
+                            <td>Groovy</td>
+                            <td>Java</td>
+                            <td><%= 7*7 %>, ${7*7}</td>
+                            <td><%= expression %> ${ expression } or $expression</td>
+                            <td class="blue-orange">Blue,Orange</td>
+                            <td><a href="https://groovy-lang.org/documentation.html">https://groovy-lang.org/documentation.html</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>GroupOrange</h3>
+
+                <table class="ui sortable celled table">
+                    <thead>
+                        <tr>
+                            <th class="">Template Engine</th>
+                            <th class="">Programming Language</th>
+                            <th class="">Final IDP</th>
+                            <th class="">Basic Syntax</th>
+                            <th class="">Syntax Group</th>
+                            <th class="">Documentation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Groovy</td>
+                            <td>Java</td>
+                            <td><%= 7*7 %>, ${7*7}</td>
+                            <td><%= expression %> ${ expression } or $expression</td>
+                            <td class="blue-orange">Blue,Orange</td>
+                            <td><a href="https://groovy-lang.org/documentation.html">https://groovy-lang.org/documentation.html</a></td>
+                        </tr>
+                        <tr>
+                            <td>EJS (Embedded JavaScript)</td>
+                            <td>JavaScript</td>
+                            <td><% const number = 10; %></td>
+                            <td><%= expression %> <%- unescaped_expression %> <%% literal_expression %>%></td>
+                            <td class="orange">Orange</td>
+                            <td><a href="https://ejs.co/">https://ejs.co/</a></td>
+                        </tr>
+                        <tr>
+                            <td>ERB (Embedded Ruby)</td>
+                            <td>Ruby</td>
+                            <td><%= "Number: #{10 + 10}" %></td>
+                            <td><%= expression %> <%=expression -%></td>
+                            <td class="orange">Orange</td>
+                            <td><a href="https://docs.ruby-lang.org/en/2.3.0/ERB.html">https://docs.ruby-lang.org/en/2.3.0/ERB.html</a></td>
+                        </tr>
+                        <tr>
+                            <td>Eta</td>
+                            <td>JavaScript</td>
+                            <td><%~ 7*7 ></td>
+                            <td><%= expression %> <%~ expression ></td>
+                            <td class="orange">Orange</td>
+                            <td><a href="https://eta.js.org/">https://eta.js.org/</a></td>
+                        </tr>
+                        <tr>
+                            <td>MojoLicious</td>
+                            <td>Perl</td>
+                            <td>%= 7*7 %</td>
+                            <td><%= expression %> %=expression%</td>
+                            <td class="orange">Orange</td>
+                            <td><a href="https://docs.mojolicious.org/Mojolicious/Guides">https://docs.mojolicious.org/Mojolicious/Guides</a></td>
+                        </tr>
+                        <tr>
+                            <td>Underscore</td>
+                            <td>JavaScript</td>
+                            <td><% _.each([1, 2, 3], function(num) { %>&lt;p&gt;Number <%= num %>&lt;/p&gt;<% }); %></td>
+                            <td><%= expression %></td>
+                            <td class="orange">Orange</td>
+                            <td><a href="https://underscorejs.org/">https://underscorejs.org/</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>GroupYellow</h3>
+
+                <table class="ui sortable celled table">
+                    <thead>
+                        <tr>
+                            <th class="">Template Engine</th>
+                            <th class="">Programming Language</th>
+                            <th class="">Final IDP</th>
+                            <th class="">Basic Syntax</th>
+                            <th class="">Syntax Group</th>
+                            <th class="">Documentation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Blade (Laravel)</td>
+                            <td>PHP</td>
+                            <td>@php echo 'This is Blade.'@endphp</td>
+                            <td>{{ expression }} @php expression @endphp</td>
+                            <td class="yellow">Yellow</td>
+                            <td><a href="https://laravel.com/docs/10.x/blade">https://laravel.com/docs/10.x/blade</a></td>
+                        </tr>
+                        <tr>
+                            <td>Django</td>
+                            <td>Python</td>
+                            <td>{{ count }} item{{ count|pluralize }}</td>
+                            <td>{{ expression }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td><a href="https://docs.djangoproject.com/en/3.2/topics/templates/">https://docs.djangoproject.com/en/3.2/topics/templates/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Handlebars</td>
+                            <td>NodeJS / JS</td>
+                            <td>{{#if condition}} True{{else}} False{{/if}}</td>
+                            <td>{{ expression }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td><a href="https://handlebarsjs.com/guide/">https://handlebarsjs.com/guide/</a></td>
+                        </tr>
+                        <tr>
+                            <td>html/template</td>
+                            <td>GO</td>
+                            <td>{{define "T1"}} &lt;script>alert(1)&lt;/script>{{end}} {{template "T1"}}</td>
+                            <td>{{ expression }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td><a href="https://go.dev/doc/">https://go.dev/doc/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Hubspot - HuBL</td>
+                            <td>Java</td>
+                            <td>{% set book = {"name" : "Rocking HubL", "author" : "John Smith" }%}{% do book.update({"ebook" : "yes"}) %}{{book}}</td>
+                            <td>{{ expression }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td><a href="https://developers.hubspot.com/docs/cms/hubl">https://developers.hubspot.com/docs/cms/hubl</a></td>
+                        </tr>
+                        <tr>
+                            <td>Jinja2</td>
+                            <td>Python</td>
+                            <td>{{config}}</td>
+                            <td>{{ expression }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td><a href="https://jinja.palletsprojects.com/">https://jinja.palletsprojects.com/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Liquid</td>
+                            <td>Ruby</td>
+                            <td>{{ 7 | times: 7 }}</td>
+                            <td>{{ expression }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td><a href="https://shopify.github.io/liquid/">https://shopify.github.io/liquid/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Mustache</td>
+                            <td>Various</td>
+                            <td>{{ . }}</td>
+                            <td>{{ expression }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td><a href="https://mustache.github.io/">https://mustache.github.io/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Nunjucks</td>
+                            <td>JavaScript</td>
+                            <td>{% set items = ["a", 1, { b : true}] %}{{ items | dump }}</td>
+                            <td>{{ expression }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td><a href="https://mozilla.github.io/nunjucks/">https://mozilla.github.io/nunjucks/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Pebble</td>
+                            <td>Java</td>
+                            <td>{% set danger = "<br>" %}{{ danger | uppercase | raw }}</td>
+                            <td>{{ expression }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td><a href="https://pebbletemplates.io/">https://pebbletemplates.io/</a></td>
+                        </tr>
+                        <tr>
+                            <td>text/template</td>
+                            <td>GO</td>
+                            <td>{{ "&lt;script>alert('test')&lt;/script>" }}</td>
+                            <td>{{ expression }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td><a href="https://pkg.go.dev/text/template">https://pkg.go.dev/text/template</a></td>
+                        </tr>
+                        <tr>
+                            <td>Tornado</td>
+                            <td>Python</td>
+                            <td>{% for i in range(3) %}  {{ i }}{% end %}</td>
+                            <td>{{ expression }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td><a href="https://readthedocs.org/projects/tornado/">https://readthedocs.org/projects/tornado/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Twig JS</td>
+                            <td>JavaScript</td>
+                            <td>{{ attribute({'a': 1}, 'a') }}</td>
+                            <td>{{ expression }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td><a href="https://twig.symfony.com/doc/3.x/">https://twig.symfony.com/doc/3.x/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Twig PHP</td>
+                            <td>PHP</td>
+                            <td>{{ cycle(['odd', 'even'], loop.index0) }}</td>
+                            <td>{{ expression }}</td>
+                            <td class="yellow">Yellow</td>
+                            <td><a href="https://twig.symfony.com/doc/3.x/">https://twig.symfony.com/doc/3.x/</a></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+
+                <h3>GroupWhite</h3>
+
+                <table class="ui sortable celled table">
+                    <thead>
+                        <tr>
+                            <th class="">Template Engine</th>
+                            <th class="">Programming Language</th>
+                            <th class="">Final IDP</th>
+                            <th class="">Basic Syntax</th>
+                            <th class="">Syntax Group</th>
+                            <th class="">Documentation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>JsRender</td>
+                            <td>NodeJS</td>
+                            <td>{{:7*7}}</td>
+                            <td>{{: expression }}</td>
+                            <td class="white">White</td>
+                            <td><a href="https://github.com/BorisMoore/jsrender">Documentation and Downloads</a></td>
+                        </tr>
+                        <tr>
+                            <td>Plates</td>
+                            <td>PHP</td>
+                            <td>&lt;?= 7 * 7 ?></td>
+                            <td>&lt;?= expression ?></td>
+                            <td class="white">White</td>
+                            <td><a href="https://platesphp.com/">https://platesphp.com/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Razor (ASP.NET)</td>
+                            <td>C#</td>
+                            <td>@(7*7)</td>
+                            <td>@expression or @(expression)</td>
+                            <td class="white">White</td>
+                            <td><a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/views/razor?view=aspnetcore-5.0">ASP.NET Core MVC Views - Razor</a></td>
+                        </tr>
+                        <tr>
+                            <td>Smarty Default</td>
+                            <td>PHP</td>
+                            <td>{math equation=7*7}</td>
+                            <td>{ expression }</td>
+                            <td class="white">White</td>
+                            <td><a href="https://www.smarty.net/documentation">https://www.smarty.net/documentation</a></td>
+                        </tr>
+                        <tr>
+                            <td>Smarty Security</td>
+                            <td>PHP</td>
+                            <td>{date('Y')}</td>
+                            <td>{ expression }</td>
+                            <td class="white">White</td>
+                            <td><a href="https://www.smarty.net/documentation">https://www.smarty.net/documentation</a></td>
+                        </tr>
+                        <tr>
+                            <td>Velocity</td>
+                            <td>Java</td>
+                            <td>#evaluate("Velocity")</td>
+                            <td>$expression</td>
+                            <td class="white">White</td>
+                            <td><a href="https://velocity.apache.org/">https://velocity.apache.org/</a></td>
+                        </tr>
+                        <tr>
+                            <td>Velocity</td>
+                            <td>JavaScript</td>
+                            <td>#evaluate("Velocity")</td>
+                            <td>$expression</td>
+                            <td class="white">White</td>
+                            <td><a href="https://velocity.apache.org/">https://velocity.apache.org/</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 id="list-of-polyglots">List of Polyglots</h2>
+            <p>This is a list of polyglots most likely to be useful for testing.</p>
+            <ul class="shortlist">
+                <li><code>&#36;&#123;&lt;&#37;&#91;&#37;&#39;&#34;&#125;&#125;&#37;\ </code></li>
+                <li><code>&#36;&#123;&#123;&lt;&#37;&#91;&#37;&#39;&#34;&#125;&#125;&#37;\&#46; </code></li>
+                <li><code>&lt;&#35;set(&#36;x&lt;&#37;=&#123;&#123;=&#123;&#64;&#123;&#35;&#123;&#36;&#123;xux&#125;&#125;&#37;&#41; </code></li>
+                <li><code>&lt;&#37;=&#123;&#123;=&#123;&#64;&#123;&#35;&#123;&#36;&#123;xu&#125;&#125;&#37;&gt; </code></li>
+                <li><code>&lt;th:t=&quot;&#36;&#123;xu&#125;&#35;foreach. </code></li>
+                <li><code>&lt;&#37;&#39;&#36;&#123;&#123;&#35;&#64;&#125;&#125;&#37;&gt; </code></li>
+                <li><code>&lt;&#37;&#39;&#36;&#123;&#123;/&#35;&#64;&#125;&#125;&#37;&gt;&#123;&#123; </code></li>
+            </ul>
+
+            <h2 id="list-of-basic-syntax">List of Basic Syntax</h2>
+            <p>This is a list of basic syntax most likely to be useful for testing.</p>
+            <ul class="longlist">
+                <li><code>#{ }</code></li>
+                <li><code>= </code></li>
+                <li><code>{$ }</code></li>
+                <li><code>{${}}</code></li>
+                <li><code>$( )</code></li>
+                <li><code>$[ ]</code></li>
+                <li><code>${ }</code></li>
+                <li><code>[= ]</code></li>
+                <li><code>$!{ }</code></li>
+                <li><code>&lt;%= %&gt;</code></li>
+                <li><code>&lt;%- %&gt;</code></li>
+                <li><code>&lt;%% %&gt;</code></li>
+                <li><code>&lt;%= -%&gt;</code></li>
+                <li><code>&lt;%~  &gt;</code></li>
+                <li><code>%= %</code></li>
+                <li><code>{{ }}</code></li>
+                <li><code>@php  @endphp</code></li>
+                <li><code>{{: }}</code></li>
+                <li><code>&lt;?= ?&gt;</code></li>
+                <li><code>@</code></li>
+                <li><code>@()</code></li>
+                <li><code>{ }</code></li>
+                <li><code>$</code></li>
+            </ul>
+
+            <div class="ui divider"></div>
+
+            <div class="button-container">
+                <!-- With a new element using Semantic UI icons -->
+                <div id="toggle-mode" class="ui icon button">
+                    <i class="moon outline icon"></i> <!-- Moon icon for dark mode -->
+                    <i class="sun icon"></i> <!-- Sun icon for light mode -->
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+
+
+    <script type="module" src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="js/tablesort.js"></script>
+
+
+
+</body>
+</html>
